@@ -59,6 +59,21 @@ header {
   display: none;
 }
 
+.search-input {
+  width: 100%;
+  height: 34px;
+  padding: 0 35px 0 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 5px rgba(41, 41, 48, 0.1);
+  box-shadow: 0 2px 5px rgba(41, 41, 48, 0.1);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #292930;
+  outline: none;
+  background: none;
+  border: none;
+}
+
 .icon {
   font-size: 2rem;
 }
@@ -70,6 +85,31 @@ header {
   column-gap: 8rem;
 }
 
+.icon-1 {
+  border: #0f0f15 solid 0.3rem;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  border-radius: 0.7rem;
+  border: none;
+  position: relative;
+}
+.icon-1 .search-toggle {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  opacity: 0;
+}
+.icon-1 .search-toggle + .search-input {
+  display: none;
+  background-color: none;
+}
+.icon-1 .search-toggle:checked + .search-input {
+  display: inline-block;
+  background-color: #fff;
+}
+
 .nav-logo {
   max-width: 12rem;
 }
@@ -78,7 +118,11 @@ header {
   font-size: 1.5rem;
 }
 .nav-right .icon-1 .search-1 {
+  background-color: #5956e9;
+  padding: 0.4rem;
+  border-radius: 50%;
   display: none;
+  fill: #d67285;
 }
 
 .hero {
@@ -96,7 +140,7 @@ h1 {
   letter-spacing: -0.09375rem;
 }
 
-span {
+.line {
   color: #5956e9;
 }
 
@@ -219,10 +263,11 @@ span {
     font-family: Poppins;
     font-size: 1.5rem;
     font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
   }
   .nav-links ul a:hover {
     color: #292930;
-    border-bottom: #292930 3px solid;
   }
   .nav-links ul .lastLi {
     display: flex;
@@ -232,6 +277,20 @@ span {
   }
   .nav-links ul .lastLi:hover {
     color: #292930;
+  }
+  a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #2522ba;
+    width: 0;
+    left: 50%;
+    bottom: -6px;
+    transition: all 0.25s;
+  }
+  a:hover::after {
+    width: 100%;
+    left: 0%;
   }
   .nav-right {
     display: flex;
@@ -332,11 +391,11 @@ span {
   }
   .hero-right .mouse {
     max-width: 8rem;
-    transform: translate(230%, 1460%);
+    transform: translate(-180%, 1460%);
   }
   .hero-right .card {
     max-width: 24rem;
-    transform: translate(100%, -20%);
+    transform: translate(-90%, -20%);
   }
 }
 @media screen and (min-width: 1440px) {
@@ -350,6 +409,9 @@ span {
     background-repeat: no-repeat;
     background-size: 230px, auto, 66rem, auto, auto, auto, auto;
     max-width: 100%;
+  }
+  .navbar {
+    padding-top: 5rem;
   }
   .nav-right .icon-1 .search-2 {
     display: none;
